@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<display-name>bimface-sample</display-name>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>com.bimface.sample.filter.CharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>uploadServlet</servlet-name>
+		<servlet-class>com.bimface.sample.servlet.UploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>uploadServlet</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>pullStatusServlet</servlet-name>
+		<servlet-class>com.bimface.sample.servlet.PullStatusServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pullStatusServlet</servlet-name>
+		<url-pattern>/pull</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>viewServlet</servlet-name>
+		<servlet-class>com.bimface.sample.servlet.ViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewServlet</servlet-name>
+		<url-pattern>/view</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>propertyServlet</servlet-name>
+		<servlet-class>com.bimface.sample.servlet.PropertyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>propertyServlet</servlet-name>
+		<url-pattern>/property</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>jsp/index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
