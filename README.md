@@ -1,8 +1,6 @@
 # 功能介绍
 
-本示例基于BIMFACE提供的服务端API和JavaScript显示组件实现了工程文件的在线浏览。
-
-基本流程：
+本示例基于BIMFACE提供的服务端API和JavaScript显示组件实现了工程文件的在线浏览，基本流程如下：
 1. 调用服务端API实现文件上传
 2. 调用服务端API发起文件转换
 3. 调用服务端API轮询转换结果
@@ -19,25 +17,25 @@
 # Java第三方依赖（Maven）
 
 ```xml
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>javax.servlet-api</artifactId>
-		<version>3.1.0</version>
-		<scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>com.bimface</groupId>
-		<artifactId>bimface-java-sdk</artifactId>
-		<version>2.0.4</version>
-	</dependency>
-	<dependency>
-		<groupId>commons-fileupload</groupId>
-		<artifactId>commons-fileupload</artifactId>
-		<version>1.3.2</version>
-	</dependency>
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>javax.servlet-api</artifactId>
+	<version>3.1.0</version>
+	<scope>provided</scope>
+</dependency>
+<dependency>
+	<groupId>com.bimface</groupId>
+	<artifactId>bimface-java-sdk</artifactId>
+	<version>2.0.4</version>
+</dependency>
+<dependency>
+	<groupId>commons-fileupload</groupId>
+	<artifactId>commons-fileupload</artifactId>
+	<version>1.3.2</version>
+</dependency>
 ```
 
-# 在本地运行
+# 如何在本地运行？
 
 ### 使用git下载源代码
 
@@ -67,9 +65,7 @@ public class Config {
 
 ### 使用Maven编译JAVA程序
 
-```
-cd $project_path
-```
+进入项目根目录
 
 ```
 mvn clean install -DskipTests
@@ -77,15 +73,13 @@ mvn clean install -DskipTests
 
 ### 部署到Tomcat8.0
 
-1. 进入目录：$project_path\target，把bimface-java-sample-1.0.0.war拷贝到Tomcat的运行目录，修改包名为：sample.war
+1. 把生成的war包拷贝到Tomcat的运行目录，修改名为：sample.war
 2. 启动Tomcat
 
 ### 在网页中运行
 
-在浏览器中输入网址，回车运行
-
 ```
-http://localhost:8080/bimface-java-sample
+http://localhost:8080/sample
 ```
 
 上传rfa，rvt等模型文件，上传完成后系统自动进行模型转换。待转换成功后，跳转至模型浏览页面
