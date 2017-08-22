@@ -7,7 +7,7 @@ package com.bimface.sample;
  */
 public class Config {
 
-    // 通过(bimface.com)创建应用，并拿到自己的appkey和appsecret
-    public final static String APP_KEY    = "请填入appkey";
-    public final static String APP_SECRET = "请填入appsecret";
+    // 通过(bimface.com)创建应用，并拿到自己的appKey和appSecret
+    public final static String APP_KEY    = "请填入appKey";
+    public final static String APP_SECRET = "请填入appSecret";
 }
