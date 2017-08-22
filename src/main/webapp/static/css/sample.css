@@ -1,116 +1,13 @@
-.header {
-	height: 50px;
-	background: #2C2C2C;
-	overflow: hidden;
-}
-
-.logo {
-	float: left;
-	padding: 10px 0 0 10px;
-}
-
-.head_desc {
-	float: left;
-	font-size: 18px;
-	padding: 18px 0 0 10px;
-	color: #FFF;
-}
-
-.home_page {
-	float: right;
-	line-height: 50px;
-	padding: 0 10px 0 0;
-}
-
-.home_page a {
-	color: #FFF;
-	text-decoration: none;
-}
-
-.home_page a:hover {
-	color: #CCC;
-}
-
-.nav {
-	background: #F0F0F0;
-}
-
-.nav ul {
-	overflow: hidden;
-}
-
-.nav ul li {
-	float: left;
-	width: 50%;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	color: #CCC;
-	background: #f0f0f0;
-}
-
-.nav ul .nav-cur {
-	background: #DDDDDD;
-	color: #333;
-}
-
-.upload-file {
-	margin: 160px 0 0 0;
-}
-
-.upload-button {
-	margin: 0 auto;
-	width: 130px;
-	padding: 25px 0;
-	text-align: center;
-	font-size: 18px;
-	color: #fff;
-	background: #11DAB7;
-	border-radius: 10px;
-}
-
-.upload-desc {
-	padding: 15px 0;
-	text-align: center;
-}
-
-.result {
-	margin: 40px 0 0 0;
-	text-align: center;
-}
-
-.viewer {
-	width: 80%;
-	float: left;
-	border-right: 1px solid #ddd;
-	box-sizing: border-box;
-}
-
-.property {
-	float: left;
-	width: 20%;
-}
-
-#element-tips {
-	text-align: center;
-	padding: 60px 0;
-	color: #999;
-	font-size:16px;
-	background: url(../images/deng.png) no-repeat 40px 55px;
-}
-
-.property-title {
-	padding: 10px 5px;
-	background: #f0f0f0;
-}
-
-.model {
-	overflow: hidden;
-}
-
-.t td, th {
-	border: 1px solid #CCC;
-	border-left: 0;
-	padding: 5px;
-	text-align: left;
-}
+body {margin: 0;padding: 0;background: #2c2c2c;height: 100%;}
+a{color:#0080ff; text-decoration:none}
+a:hover{color:#ff8000; text-decoration:none}
+.header {margin:o auto; padding:100px 0 20px 0; text-align:center; color: #F0F0F0; font-size:24px}
+.tips {padding:20px 0; text-align:center; color: #F0F0F0; font-size:16px}
+.box {margin:0 auto;height:500px; width:900px;background:#FFF;}
+.viewer{height:500px; width:900px;}
+.hide {display:none}
+.upload-file {padding: 120px 0 0 0;}
+.upload-button {margin: 0 auto;	width: 120px;padding: 15px 0;text-align: center;font-size: 16px;color: #fff;background: #11DAB7;border-radius: 5px;cursor:pointer;}
+.upload-button:hover {color: #fff;background: #008080;}
+.upload-desc {padding: 15px 0;text-align: center;color:#999;}
+.result {padding: 40px 0 0 0;text-align: center;}

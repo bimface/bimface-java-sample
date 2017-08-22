@@ -1,53 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>bimface sample</title>
-<link rel="shortcut icon" href="http://static.bimface.com/favicon.ico" type="image/x-icon" />
-<link rel="icon" href="http://static.bimface.com/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/reset.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>sample</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/sample.css">
 <script src="<%=request.getContextPath() %>/static/js/jquery.js"></script>
 <script src="<%=request.getContextPath() %>/static/js/plupload.full.min.js"></script>
 </head>
   
 <body>
+<div class="header">BIMFACE简单示例</div>
+<div class="tips">第一步：调用服务端API上传文件，并发起转换</div>
+<div class="box">
 
-<div class="header">
-	<div class="logo">
-    	<img src="<%=request.getContextPath() %>/static/images/logo.png" alt="BIMFACE">
+	<div class="upload-file">
+		<div class="upload-button" id="pickfiles">选择文件</div>
+		<div class="upload-desc">
+			格式：rvt、rfa、dwg、skp、nwc、nwd、ifc、3ds、dwf <br/>
+			大小：500M
+		</div>
 	</div>
-	<div class="head_desc">示例程序</div>
-	<div class="home_page">
-		<a href="http://bimface.com" target="_blank">访问BIMFACE官网</a>
+	
+	<div class="result hide" id="wait-box">
+		<img src="<%=request.getContextPath() %>/static/images/timg.gif"><br />
+		正在转换，请稍等...
 	</div>
-</div>
-
-<div class="nav">
-	<ul>
- 		<li class="nav-cur">1）上传文件并发起转换</li>
- 		<li>2）预览工程文件</li>
-	</ul>
-</div>
-
-<div class="upload-file ">
-	<div class="upload-button" id="pickfiles">选择文件</div>
-	<div class="upload-desc">
-		格式：rvt、rfa、dwg、skp、nwc、nwd、ifc、3ds、dwf <br/>
-		大小：500M
+	
+	<div class="result hide" id="translate-error-box">
+		<img src="<%=request.getContextPath() %>/static/images/error.jpg"><br />
+		转换失败，请<a href="<%=request.getContextPath() %>/upload">重新上传</a>
 	</div>
-	<div id="progress"></div>
-</div>
-
-<div class="result hide" id="wait-box">
-	<img src="<%=request.getContextPath() %>/static/images/timg.gif"><br />
-	正在转换，请稍等...
-</div>
-
-<div class="result hide" id="translate-error-box">
-	<img src="<%=request.getContextPath() %>/static/images/error.jpg"><br />
-	转换失败，请<a href="<%=request.getContextPath() %>/upload">重新上传</a>
+	
 </div>
 
 <script>
@@ -90,15 +76,16 @@ var uploader = new plupload.Uploader({
         }
     }
 });
+
 uploader.init();
 
 var timer;
-function getStatus(val) {
+function getStatus(fileId) {
 	timer = setInterval(function() {
-		$.get('<%=request.getContextPath() %>/pull?fileId='+ val,function(res){
+		$.get('<%=request.getContextPath() %>/pull?fileId='+ fileId,function(res){
 			var re = $.parseJSON(res);
 			if(re.status == 'success') {
-				location.href="<%=request.getContextPath() %>/view?fileId="+val;
+				location.href="<%=request.getContextPath() %>/view?fileId="+fileId;
 	  			clearInterval(timer);
 	  		} else if(re.status == 'failed'){
 	        	$('#wait-box').hide();

@@ -10,8 +10,8 @@ import com.bimface.sdk.exception.BimfaceException;
 
 /**
  * 获取view token
+ * 
  * @author bimface, 2017-03-01
- *
  */
 public class ViewServlet extends AbstractServlet {
 
@@ -19,10 +19,10 @@ public class ViewServlet extends AbstractServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    	// 获取参数值
+        // 获取参数值
         String fileId = request.getParameter("fileId");
-        
-        //获取view token
+
+        // 获取view token
         String viewToken = null;
         try {
             viewToken = bimfaceClient.getViewTokenByFileId(Long.valueOf(fileId));
@@ -31,7 +31,6 @@ public class ViewServlet extends AbstractServlet {
         }
 
         request.setAttribute("viewToken", viewToken);
-        request.setAttribute("fileId", fileId);
         request.getRequestDispatcher("jsp/view.jsp").forward(request, response);
     }
 }
