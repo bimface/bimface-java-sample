@@ -3,7 +3,7 @@
 本示例基于BIMFACE提供的服务端API和JavaScript显示组件实现了工程文件的在线浏览，基本流程如下：
 1. 调用服务端API实现文件上传
 2. 调用服务端API发起文件转换
-3. 调用服务端API轮询转换结果
+3. 调用服务端API查询转换结果，每秒钟查询一次
 4. 待转换成功后，调用服务端API获取ViewToken
 5. 在网页中集成JavaScript显示组件，实现工程文件在线浏览
 
@@ -81,5 +81,3 @@ mvn clean install -DskipTests
 ```
 http://localhost:8080/sample
 ```
-
-上传rfa，rvt等模型文件，上传完成后系统自动进行模型转换。待转换成功后，跳转至模型浏览页面
