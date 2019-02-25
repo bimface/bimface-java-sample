@@ -1,23 +1,21 @@
 package com.bimface.sample.servlet;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.alibaba.fastjson.JSONObject;
+import com.bimface.api.bean.response.FileTranslateBean;
+import com.bimface.exception.BimfaceException;
+import com.bimface.file.bean.FileBean;
+import com.bimface.sdk.bean.request.FileUploadRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.alibaba.fastjson.JSONObject;
-import com.bimface.sdk.bean.request.FileUploadRequest;
-import com.bimface.sdk.bean.response.FileBean;
-import com.bimface.sdk.bean.response.TranslateBean;
-import com.bimface.sdk.exception.BimfaceException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 /**
  * 上传模型文件
  * @author bimface, 2017-03-01
@@ -33,7 +31,7 @@ public class UploadServlet extends AbstractServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     	//上传文件
         FileBean fileBean = null;
@@ -56,7 +54,7 @@ public class UploadServlet extends AbstractServlet {
         Long fileId = fileBean.getFileId();
 
         // 发起文件转换
-        TranslateBean translateBean = null;
+        FileTranslateBean translateBean = null;
         try {
             translateBean = bimfaceClient.translate(fileId);
         } catch (BimfaceException e) {

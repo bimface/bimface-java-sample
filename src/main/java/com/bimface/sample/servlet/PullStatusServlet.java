@@ -1,13 +1,12 @@
 package com.bimface.sample.servlet;
 
-import java.io.IOException;
+import com.alibaba.fastjson.JSONObject;
+import com.bimface.api.bean.response.FileTranslateBean;
+import com.bimface.exception.BimfaceException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.alibaba.fastjson.JSONObject;
-import com.bimface.sdk.bean.response.TranslateBean;
-import com.bimface.sdk.exception.BimfaceException;
+import java.io.IOException;
 
 /**
  * 获取文件转换状态
@@ -23,11 +22,12 @@ public class PullStatusServlet extends AbstractServlet {
         String fileId = request.getParameter("fileId");
 
         //调用BIMFACE-SDK获取文件转换状态
-        TranslateBean translateBean = null;
+        FileTranslateBean translateBean = null;
         try {
             translateBean = bimfaceClient.getTranslate(Long.valueOf(fileId));
         } catch (NumberFormatException e) {
         } catch (BimfaceException e) {
+            e.printStackTrace();
         }
 
         //// JSON序列化
