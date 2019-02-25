@@ -1,12 +1,10 @@
 package com.bimface.sample.servlet;
 
-import java.io.IOException;
-
+import com.bimface.exception.BimfaceException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.bimface.sdk.exception.BimfaceException;
+import java.io.IOException;
 
 /**
  * 获取view token
