@@ -26,7 +26,8 @@
 <dependency>
 	<groupId>com.bimface</groupId>
 	<artifactId>bimface-java-sdk</artifactId>
-	<version>2.0.4</version>
+	<version>3.1.1</version>
+	<classifier>all</classifier>
 </dependency>
 <dependency>
 	<groupId>commons-fileupload</groupId>
