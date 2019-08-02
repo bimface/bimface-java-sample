@@ -1,10 +1,10 @@
 package com.bimface.sample.servlet;
 
-import com.alibaba.fastjson.JSONObject;
 import com.bimface.api.bean.response.FileTranslateBean;
 import com.bimface.exception.BimfaceException;
 import com.bimface.file.bean.FileBean;
 import com.bimface.sdk.bean.request.FileUploadRequest;
+import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -60,6 +60,7 @@ public class UploadServlet extends AbstractServlet {
         } catch (BimfaceException e) {
         }
 
-        response.getWriter().write(JSONObject.toJSONString(translateBean));
+        Gson gson = new Gson();
+        response.getWriter().write(gson.toJson(translateBean));
     }
 }
