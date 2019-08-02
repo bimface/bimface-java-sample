@@ -26,7 +26,7 @@
 <dependency>
 	<groupId>com.bimface</groupId>
 	<artifactId>bimface-java-sdk</artifactId>
-	<version>3.1.1</version>
+	<version>3.2.4</version>
 	<classifier>all</classifier>
 </dependency>
 <dependency>
