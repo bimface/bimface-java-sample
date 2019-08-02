@@ -1,8 +1,8 @@
 package com.bimface.sample.servlet;
 
-import com.alibaba.fastjson.JSONObject;
 import com.bimface.api.bean.response.FileTranslateBean;
 import com.bimface.exception.BimfaceException;
+import com.google.gson.Gson;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +31,8 @@ public class PullStatusServlet extends AbstractServlet {
         }
 
         //// JSON序列化
-        response.getWriter().write(JSONObject.toJSONString(translateBean));
+        Gson gson = new Gson();
+        response.getWriter().write(gson.toJson(translateBean));
     }
 
 }
